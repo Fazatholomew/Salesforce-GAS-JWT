@@ -28,6 +28,11 @@ build/
 # Misc
 .DS_Store
 
+# Public Private Keys
 *.pem
 
-*.cer 
+*.cer
+
+# Google Apps Script Project Files
+.clasp.json
+appsscript.json

@@ -1,25 +1,20 @@
 import { logErrorFunctions } from './error';
 import { fetchApi } from './fetch';
+import { createJWTInput, getAccessTokenInput, jwtPayloadInterface } from './types';
 
 // Based on tutorial: https://www.labnol.org/code/json-web-token-201128
 // https://mannharleen.github.io/2020-03-03-salesforce-jwt/
 // openssl pkcs8 -topk8 -inform pem -in private.pem -outform pem -nocrypt -out newPrivate.pem
 
-interface jwtPayloadInterface {
-  iss: string; // CLIENT_ID
-  sub: string; // SF USERNAME
-  aud: string; // SF URL
-  exp: number; // Expired in Unix Timestamp
-}
-
 /**
  *
  * Create JWT Auth for Salesforce Auth
+ * @param {create} credentials - Necessary credentials to form the JWT
  * @returns {string} - token
  *
  */
 
-const createJwt = (): string => {
+const createJwt = (credentials: createJWTInput): string => {
   try {
     // JWT Header
     const header = {
@@ -27,19 +22,18 @@ const createJwt = (): string => {
       typ: 'JWT',
     };
 
-    // Retrieve credentials using PropertiesService
     const {
       iss,
       sub,
       aud,
-      key
-    } = PropertiesService.getScriptProperties().getProperties();
+      key,
+    } = credentials;
 
     // Determine expired time
     const expireTime: Date = new Date();
     expireTime.setSeconds(expireTime.getSeconds() + 180);
 
-    // Create payload
+    // Create JWT payload
     const payload: jwtPayloadInterface = {
       iss,
       sub,
@@ -70,12 +64,11 @@ const createJwt = (): string => {
  *
  */
 
-const getAccessToken = () => {
+const getAccessToken = ({jwt, url}: getAccessTokenInput) => {
   try {
-    const aud = PropertiesService.getScriptProperties().getProperty('aud')
-    const jwt: string = createJwt();
-    const url = `https://${aud}/services/oauth2/token?grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=${jwt}`;
-    return fetchApi(url, 'post');
+    // Construct URL to retrieve the access token
+    const constructedURL = `https://${url}/services/oauth2/token?grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=${jwt}`;
+    return fetchApi(constructedURL, 'post');
   } catch (error) {
     logErrorFunctions('getAccessToken', '', '', error);
     return {};
