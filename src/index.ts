@@ -10,7 +10,7 @@ import { createJWTInput, getAccessTokenInput, jwtPayloadInterface } from './type
  *
  * Create JWT Auth for Salesforce Auth
  * @param {create} credentials - Necessary credentials to form the JWT
- * @returns {string} - token
+ * @returns {string} - Signed JWT Token
  *
  */
 
@@ -52,7 +52,7 @@ const createJwt = (credentials: createJWTInput): string => {
 
     return `${data}.${signature}`;
   } catch (error) {
-    logErrorFunctions('createJwt', '', '', error);
+    logErrorFunctions('createJwt', credentials, '', error);
     return '';
   }
 };
@@ -70,11 +70,12 @@ const getAccessToken = ({jwt, url}: getAccessTokenInput) => {
     const constructedURL = `https://${url}/services/oauth2/token?grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=${jwt}`;
     return fetchApi(constructedURL, 'post');
   } catch (error) {
-    logErrorFunctions('getAccessToken', '', '', error);
+    logErrorFunctions('getAccessToken', {jwt, url}, '', error);
     return {};
   }
 };
 
 export {
   getAccessToken,
+  createJwt,
 };

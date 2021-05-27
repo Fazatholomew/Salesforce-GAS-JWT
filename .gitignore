@@ -34,5 +34,3 @@ build/
 *.cer
 
 # Google Apps Script Project Files
-.clasp.json
-appsscript.json
