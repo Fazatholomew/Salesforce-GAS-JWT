@@ -1,0 +1,27 @@
+{
+  "name": "sfjwtauth",
+  "version": "1.0.0",
+  "description": "Wrapper function for authentication between Salesforce and client using JWT. ",
+  "main": "Code.ts",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "keywords": [
+    "Salesforce",
+    "JWT",
+    "authentication",
+    "publicprivate",
+    "SF",
+    "server",
+    "GoogleAppsScript",
+    "GAS"
+  ],
+  "author": "Jimmy Faza Hikmatullah",
+  "license": "ISC",
+  "dependencies": {
+    "@types/google-apps-script": "^1.0.33"
+  },
+  "devDependencies": {
+    "jest": "^27.0.1"
+  }
+}
