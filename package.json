@@ -1,7 +1,7 @@
 {
   "name": "sfjwtauth",
   "version": "1.0.0",
-  "description": "Wrapper function for authentication between Salesforce and client using JWT. ",
+  "description": "Google Apps Script implementation of Salesforce Oauth using JSON Web Token.",
   "main": "Code.ts",
   "scripts": {
     "test": "jest --coverage"
@@ -14,14 +14,14 @@
     "SF",
     "server",
     "GoogleAppsScript",
-    "GAS"
+    "GAS",
+    "OAUTH"
   ],
   "author": "Jimmy Faza Hikmatullah",
-  "license": "ISC",
-  "dependencies": {
-    "@types/google-apps-script": "^1.0.33"
-  },
+  "license": "Apache-2.0",
+  "dependencies": {},
   "devDependencies": {
+    "@types/google-apps-script": "^1.0.33",
     "jest": "^27.0.1"
   }
 }
