@@ -9,7 +9,7 @@ import { createJWTInput, getAccessTokenInput, jwtPayloadInterface } from './type
 /**
  *
  * Create JWT Auth for Salesforce Auth
- * @param {create} credentials - Necessary credentials to form the JWT
+ * @param {createJWTInput} credentials - Necessary credentials to form the JWT
  * @returns {string} - Signed JWT Token
  *
  */
