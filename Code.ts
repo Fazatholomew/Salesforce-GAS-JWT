@@ -9,7 +9,7 @@ import {createJwt, getAccessToken} from './src/index';
 
 const run = () => {
   // This is example only. Please follow the steps to provide credentials:
-  //
+  // https://mannharleen.github.io/2020-03-03-salesforce-jwt/
 
   // Retrieve credential from Property Service
   // https://developers.google.com/apps-script/reference/properties/

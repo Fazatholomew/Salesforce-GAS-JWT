@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to sfjwtauth 👋</h1>
+<h1 align="center">Welcome to Salesforce-GAS-JWT 👋</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
   <a href="#" target="_blank">
@@ -15,11 +15,11 @@
 * ### (Option 1) Create New Google Apps Script Project
 
 ```sh
-git clone
-cd sfjwtauth
+git clone https://github.com/Fazatholomew/Salesforce-GAS-JWT.git
+cd Salesforce-GAS-JWT
 npm i @google/clasp -g
 clasp login
-clasp create --title "Salesforce Authentication"
+clasp create --title "Salesforce JWT Authentication"
 ```
 
 * ### (Option 2) Integrate with existing project

@@ -4,7 +4,6 @@ import { createJWTInput, getAccessTokenInput, jwtPayloadInterface } from './type
 
 // Based on tutorial: https://www.labnol.org/code/json-web-token-201128
 // https://mannharleen.github.io/2020-03-03-salesforce-jwt/
-// openssl pkcs8 -topk8 -inform pem -in private.pem -outform pem -nocrypt -out newPrivate.pem
 
 /**
  *
